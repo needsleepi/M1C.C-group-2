@@ -11,6 +11,7 @@ class M1C{
 		int timkiem(int x);
 		void sapxep();
 		void xoak(int k);	
+		void nhapk(int k);
 };
 
 void M1C::nhap(){
@@ -60,6 +61,19 @@ void m1c::xoak(int k){
 }
 	spt--;
 }
+void m1c::chenk(int k){
+	if(k<0||spt>=200){
+		cout<<"Khong co vi tri hoac mang da day!";
+		return;}
+	cout<<"Nhap gia tri can chen: ";
+	int x;
+	cin>>x;
+	for(int i=spt;i>k;i--){
+		a[i]=a[i-1];
+	}
+	a[k]=x;
+	spt++;
+}
 int main (){
 	M1C x;
 	x.nhap();
@@ -83,6 +97,11 @@ int main (){
 	cin>>h;
 	cout<<"Mang sau khi xoa "<<h<<endl;
 	x.xoak(h);
+	x.xuat();
+	cout<<"Nhap vi tri can chen: ";
+	cin>>q;
+	x.chenk(q);
+	cout<<"Mang sau khi chen la:"<<endl;
 	x.xuat();
     return 0;
     }
